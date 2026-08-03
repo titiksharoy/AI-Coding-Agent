@@ -12,13 +12,13 @@ Working on this project gave me a better understanding of how AI coding assistan
 
 ## Features
 
+- Accepts a repository path and feature request from the user.
 - Explores an existing project and reads its source files.
 - Builds a project context for the LLM.
 - Generates an implementation plan based on the user's requirement.
 - Produces updated source code using Google's Gemini API.
 - Automatically updates the required project files.
-- Displays a summary of all modified files.
-- Reports API errors if a request fails.
+- Displays a summary of modified files after execution.
 
 ---
 
@@ -28,7 +28,7 @@ The project is divided into small modules, where each module is responsible for 
 
 ### Step 1 – Explore the Repository
 
-The agent scans the project directory and reads the source files. The collected files are combined into a single project context.
+The agent receives the repository path from the user, scans the project directory, and reads relevant source files to build project context.
 
 ### Step 2 – Create an Implementation Plan
 
@@ -146,22 +146,22 @@ GEMINI_API_KEY=your_api_key_here
 
 ## Usage
 
-Update the project path and the feature request in `main.py`.
-
-Example:
-
-```python
-project_path = r"path/to/node-easy-notes-app"
-
-user_request = (
-    "Improve the application so users can better organise and search their notes."
-)
-```
-
-Run the project.
+Run the agent:
 
 ```bash
 python main.py
+```
+
+Provide the repository path and feature request when prompted.
+
+Example:
+
+```text
+Enter the project path:
+G:\node-easy-notes-app
+
+Enter the user requirement:
+Improve the application so users can better organise and search their notes.
 ```
 
 The agent will:
@@ -171,8 +171,6 @@ The agent will:
 - Generate updated code.
 - Modify the required files.
 - Display a summary of the modified files.
-
----
 
 ## Technologies Used
 
@@ -188,6 +186,7 @@ The agent will:
 
 ### Assumptions
 
+- The user provides a valid repository path and a clear feature request.
 - The existing repository structure and code are understandable from the files provided to the agent.
 - The LLM can identify the relevant files and suggest appropriate changes based on the user requirement.
 - The generated changes are expected to follow the existing project structure and coding style.
@@ -205,6 +204,7 @@ The agent will:
 - Currently supports command-line execution.
 - Depends on the Gemini API for planning and code generation.
 - Tested on a small Node.js project.
+- Accepts one feature request at a time through command-line input.
 
 ---
 

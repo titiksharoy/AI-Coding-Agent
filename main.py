@@ -20,16 +20,21 @@ def build_project_context(files):
 
 if __name__ == "__main__":
 
-    project_path = input("Enter the project path: ").strip()
+    project_path = input(
+        "Enter the project path: "
+    ).strip()
 
     if not os.path.exists(project_path):
         print("Error: Project path does not exist.")
         exit()
 
-    user_request = (
-        "Improve the application so users "
-        "can better organise and search their notes."
-    )
+    user_request = input(
+        "\nEnter the user requirement: "
+    ).strip()
+
+    if not user_request:
+        print("Error: User requirement cannot be empty.")
+        exit()
 
     print("\nReading project...")
 
