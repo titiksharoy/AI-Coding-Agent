@@ -76,14 +76,14 @@ The generated response is parsed using regular expressions, and the updated code
 
 The agent analyzes the project context and creates an execution plan based on the user's requirement.
 
-![Implementation Plan](screenshots/execution_plan.png)
+![Implementation Plan](screenshots/execution-plan.png)
 
 
 ### Final Execution Output
 
 The agent generates the required changes, updates the project files automatically, and displays the execution summary.
 
-![Final Output](screenshots/final_output.png)
+![Final Output](screenshots/final-output.png)
 
 ---
 ## Project Structure
