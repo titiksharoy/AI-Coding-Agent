@@ -2,11 +2,11 @@
 
 ## Overview
 
-This project was developed as part of an AI Coding Agent assignment.
+This project implements an AI coding agent that analyzes an existing codebase and applies feature changes based on user requirements.
 
-The objective was to build an AI agent that can understand an existing codebase and implement a new feature based on a user's requirement. Instead of generating code from scratch, the agent first analyzes the project, creates an implementation plan, generates the required code changes using Google's Gemini API, and updates the relevant files automatically.
+The agent does not generate code from scratch. Instead, it first explores the repository, creates an implementation plan, generates the required code changes using Google's Gemini API, and automatically updates the relevant files.
 
-Working on this project gave me a better understanding of how AI coding assistants analyze repositories and assist developers with code generation.
+Working on this project gave me a better understanding of how AI coding assistants analyze repositories and assist developers with code generation. 
 
 ---
 
@@ -105,7 +105,6 @@ AI-Coding-Agent/
 ├── requirements.txt
 ├── .gitignore
 ├── .env.example
-└── .env
 ```
 
 ---
@@ -152,7 +151,7 @@ Update the project path and the feature request in `main.py`.
 Example:
 
 ```python
-project_path = r"G:\node-easy-notes-app-master"
+project_path = r"path/to/node-easy-notes-app"
 
 user_request = (
     "Improve the application so users can better organise and search their notes."
@@ -182,6 +181,22 @@ The agent will:
 - Google GenAI SDK
 - python-dotenv
 - Regular Expressions (Regex)
+
+---
+
+## Assumptions and Trade-offs
+
+### Assumptions
+
+- The existing repository structure and code are understandable from the files provided to the agent.
+- The LLM can identify the relevant files and suggest appropriate changes based on the user requirement.
+- The generated changes are expected to follow the existing project structure and coding style.
+
+### Trade-offs
+
+- The agent is designed for small to medium-sized repositories and may require improvements for very large codebases.
+- The generated code is not automatically tested before applying changes.
+- The current implementation uses a simple file-based approach, which keeps the agent lightweight but can be extended with more advanced repository analysis in the future.
 
 ---
 
